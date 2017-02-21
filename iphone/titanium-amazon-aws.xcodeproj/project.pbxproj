@@ -28,6 +28,10 @@
 		24DE9E1211C5FE74003F90F6 /* TiAwsModuleAssets.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DE9E1011C5FE74003F90F6 /* TiAwsModuleAssets.m */; };
 		AA747D9F0F9514B9006C5449 /* TiAws_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* TiAws_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+		DB75F8A41E5C44F400825AFD /* TiAwsMachineLearningModule.h in Headers */ = {isa = PBXBuildFile; fileRef = DB75F8A21E5C44F400825AFD /* TiAwsMachineLearningModule.h */; };
+		DB75F8A51E5C44F400825AFD /* TiAwsMachineLearningModule.m in Sources */ = {isa = PBXBuildFile; fileRef = DB75F8A31E5C44F400825AFD /* TiAwsMachineLearningModule.m */; };
+		DB75F8A81E5C463100825AFD /* TiAwsMachineLearningPredictionManagerProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = DB75F8A61E5C463100825AFD /* TiAwsMachineLearningPredictionManagerProxy.h */; };
+		DB75F8A91E5C463100825AFD /* TiAwsMachineLearningPredictionManagerProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = DB75F8A71E5C463100825AFD /* TiAwsMachineLearningPredictionManagerProxy.m */; };
 		DBF5FE341E5C3611002766F9 /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBF5FE2E1E5C3611002766F9 /* AWSCore.framework */; };
 		DBF5FE351E5C3611002766F9 /* AWSDynamoDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBF5FE2F1E5C3611002766F9 /* AWSDynamoDB.framework */; };
 		DBF5FE361E5C3611002766F9 /* AWSIoT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBF5FE301E5C3611002766F9 /* AWSIoT.framework */; };
@@ -58,6 +62,10 @@
 		AA747D9E0F9514B9006C5449 /* TiAws_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiAws_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D2AAC07E0554694100DB518D /* libti.aws.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libti.aws.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB75F8A21E5C44F400825AFD /* TiAwsMachineLearningModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiAwsMachineLearningModule.h; path = Classes/TiAwsMachineLearningModule.h; sourceTree = "<group>"; };
+		DB75F8A31E5C44F400825AFD /* TiAwsMachineLearningModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiAwsMachineLearningModule.m; path = Classes/TiAwsMachineLearningModule.m; sourceTree = "<group>"; };
+		DB75F8A61E5C463100825AFD /* TiAwsMachineLearningPredictionManagerProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiAwsMachineLearningPredictionManagerProxy.h; path = Classes/TiAwsMachineLearningPredictionManagerProxy.h; sourceTree = "<group>"; };
+		DB75F8A71E5C463100825AFD /* TiAwsMachineLearningPredictionManagerProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiAwsMachineLearningPredictionManagerProxy.m; path = Classes/TiAwsMachineLearningPredictionManagerProxy.m; sourceTree = "<group>"; };
 		DBF5FE2E1E5C3611002766F9 /* AWSCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSCore.framework; path = platform/AWSCore.framework; sourceTree = "<group>"; };
 		DBF5FE2F1E5C3611002766F9 /* AWSDynamoDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSDynamoDB.framework; path = platform/AWSDynamoDB.framework; sourceTree = "<group>"; };
 		DBF5FE301E5C3611002766F9 /* AWSIoT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSIoT.framework; path = platform/AWSIoT.framework; sourceTree = "<group>"; };
@@ -159,6 +167,10 @@
 		DBF5FE3D1E5C3631002766F9 /* MachineLearning */ = {
 			isa = PBXGroup;
 			children = (
+				DB75F8A21E5C44F400825AFD /* TiAwsMachineLearningModule.h */,
+				DB75F8A31E5C44F400825AFD /* TiAwsMachineLearningModule.m */,
+				DB75F8A61E5C463100825AFD /* TiAwsMachineLearningPredictionManagerProxy.h */,
+				DB75F8A71E5C463100825AFD /* TiAwsMachineLearningPredictionManagerProxy.m */,
 			);
 			name = MachineLearning;
 			sourceTree = "<group>";
@@ -182,8 +194,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA747D9F0F9514B9006C5449 /* TiAws_Prefix.pch in Headers */,
+				DB75F8A81E5C463100825AFD /* TiAwsMachineLearningPredictionManagerProxy.h in Headers */,
 				DBF5FE411E5C366B002766F9 /* TiAwsS3Module.h in Headers */,
 				24DD6CF91134B3F500162E58 /* TiAwsModule.h in Headers */,
+				DB75F8A41E5C44F400825AFD /* TiAwsMachineLearningModule.h in Headers */,
 				DBF5FE451E5C379F002766F9 /* TiAwsS3TransferManagerProxy.h in Headers */,
 				24DE9E1111C5FE74003F90F6 /* TiAwsModuleAssets.h in Headers */,
 			);
@@ -261,8 +275,10 @@
 			files = (
 				DBF5FE461E5C379F002766F9 /* TiAwsS3TransferManagerProxy.m in Sources */,
 				24DD6CFA1134B3F500162E58 /* TiAwsModule.m in Sources */,
+				DB75F8A91E5C463100825AFD /* TiAwsMachineLearningPredictionManagerProxy.m in Sources */,
 				24DE9E1211C5FE74003F90F6 /* TiAwsModuleAssets.m in Sources */,
 				DBF5FE421E5C366B002766F9 /* TiAwsS3Module.m in Sources */,
+				DB75F8A51E5C44F400825AFD /* TiAwsMachineLearningModule.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

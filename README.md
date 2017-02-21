@@ -6,15 +6,17 @@ for productional use.
 The following sub-frameworks can be exposed (marked ✅ are implemented):
 - [x] AWSCore.framework
 - [x] AWSS3.framework
+- [x] AWSMachineLearning.framework
+
+- [ ] AWSDynamoDB.framework
+- [ ] AWSIoT.framework
 - [ ] AWSAutoScaling.framework
 - [ ] AWSCloudWatch.framework
-- [ ] AWSDynamoDB.framework
 - [ ] AWSEC2.framework
 - [ ] AWSElasticLoadBalancing.framework
 - [ ] AWSKinesis.framework
 - [ ] AWSLambda.framework
 - [ ] AWSLex.framework
-- [ ] AWSMachineLearning.framework
 - [ ] AWSMobileAnalytics.framework
 - [ ] AWSPinpoint.framework
 - [ ] AWSPolly.framework
@@ -23,7 +25,7 @@ The following sub-frameworks can be exposed (marked ✅ are implemented):
 - [ ] AWSSNS.framework
 - [ ] AWSSQS.framework
 
-The plan is to do `DynamoDB`, `S3`, `MachineLearning` and `IoT` first.
+The plan is to do `S3`, `MachineLearning`, `DynamoDB` and `IoT` first.
 
 ## Author
 Hans Knoechel ([@hansemannnn](https://twitter.com/hansemannnn) / [Web](http://hans-knoechel.de))

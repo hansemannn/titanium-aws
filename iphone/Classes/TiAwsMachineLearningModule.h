@@ -6,12 +6,12 @@
  */
 #import "TiModule.h"
 
-@class TiAwsS3TransferManagerProxy;
+@class TiAwsMachineLearningPredictionManagerProxy;
 
-@interface TiAwsS3Module : TiModule {
+@interface TiAwsMachineLearningModule : TiModule {
 
 }
 
-- (TiAwsS3TransferManagerProxy *)createTransferManager:(id)args;
+- (TiAwsMachineLearningPredictionManagerProxy *)createPredictionManager:(id)args;
 
 @end

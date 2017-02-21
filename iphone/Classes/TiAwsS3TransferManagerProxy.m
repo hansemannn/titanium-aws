@@ -53,8 +53,7 @@
     
     // The callback to be invoked upon success
     KrollCallback *success = nil;
-    ENSURE_ARG_OR_NIL_FOR_KEY(success, args, @"success", KrollCallback);
-    
+    ENSURE_ARG_OR_NIL_FOR_KEY(success, args, @"success", KrollCallback);    
     
     AWSS3TransferManagerDownloadRequest *downloadRequest = [AWSS3TransferManagerDownloadRequest new];
     
@@ -159,6 +158,8 @@
 {
     [transferManager clearCache];
 }
+
+#pragma mark Utilities
 
 - (void)handleAWSErrorWithTask:(AWSTask *)task andCallback:(KrollCallback *)callback
 {
