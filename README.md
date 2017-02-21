@@ -1,15 +1,18 @@
 # Titanium Amazon SDK
-Use the Amazon AWS SDK with Appcelerator Titanium. Current in development and not meant
-for productional use. 
+Use the Amazon AWS SDK with Appcelerator Titanium. Currently supported:
+- Core / Logger
+- S3
+- Machine Learning
+- IoT
 
 ## Features
 The following sub-frameworks can be exposed (marked ✅ are implemented):
 - [x] AWSCore.framework
 - [x] AWSS3.framework
 - [x] AWSMachineLearning.framework
+- [x] AWSIoT.framework
 
 - [ ] AWSDynamoDB.framework
-- [ ] AWSIoT.framework
 - [ ] AWSAutoScaling.framework
 - [ ] AWSCloudWatch.framework
 - [ ] AWSEC2.framework
@@ -25,7 +28,8 @@ The following sub-frameworks can be exposed (marked ✅ are implemented):
 - [ ] AWSSNS.framework
 - [ ] AWSSQS.framework
 
-The plan is to do `S3`, `MachineLearning`, `DynamoDB` and `IoT` first.
+## Docs
+TBA - Please write examples and docs to contribute, I'd appreciate that!
 
 ## Author
 Hans Knoechel ([@hansemannnn](https://twitter.com/hansemannnn) / [Web](http://hans-knoechel.de))
