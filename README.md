@@ -3,7 +3,7 @@ Use the Amazon AWS SDK with Appcelerator Titanium. Current in development and no
 for productional use. 
 
 ## Features
-The following sub-frameworks can be exposed (marked ❎ are implemented):
+The following sub-frameworks can be exposed (marked ✅ are implemented):
 - [x] AWSCore.framework
 - [ ] AWSAutoScaling.framework
 - [ ] AWSCloudWatch.framework
