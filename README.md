@@ -1,4 +1,6 @@
 # Titanium Amazon SDK
+[![Build Status](https://travis-ci.org/hansemannn/titanium-amazon-aws.svg?branch=master)](https://travis-ci.org/hansemannn/titanium-amazon-aws) [![License](http://hans-knoechel.de/shields/shield-license.svg?v=2)](./LICENSE) [![Contact](http://hans-knoechel.de/shields/shield-twitter.svg?v=2)](http://twitter.com/hansemannnn)
+
 Use the Amazon AWS SDK with Appcelerator Titanium. Currently supported:
 - Core / Logger
 - S3
