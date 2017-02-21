@@ -1,0 +1,6 @@
+
+// Change on every new version or find better way :-)
+FRAMEWORK_SEARCH_PATHS=$(SRCROOT)/../../modules/iphone/ti.aws/1.0.0/platform "~/Library/Application\ Support/Titanium/modules/iphone/ti.aws/1.0.0/platform"
+
+// More to be added later
+OTHER_LDFLAGS = $(inherited) -framework AWSCore -framework AWSDynamoDB -framework AWSIoT -framework AWSMachineLearning -framework AWSS3

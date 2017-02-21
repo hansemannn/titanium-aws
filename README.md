@@ -23,7 +23,7 @@ The following sub-frameworks *can* be exposed:
 - [ ] AWSSNS.framework
 - [ ] AWSSQS.framework
 
-The plan is to do `DynamoDB`, `S3`, `MachineLearning` and `Lamda` first and then see what requested.
+The plan is to do `DynamoDB`, `S3`, `MachineLearning` and `IoT` first.
 
 ## Author
 Hans Knoechel ([@hansemannnn](https://twitter.com/hansemannnn) / [Web](http://hans-knoechel.de))

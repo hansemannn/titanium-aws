@@ -1,0 +1,18 @@
+#
+# this is your module manifest and used by Titanium
+# during compilation, packaging, distribution, etc.
+#
+version: 1.0.0
+apiversion: 2
+architectures: armv7 arm64 i386 x86_64
+description: titanium-amazon-aws
+author: Hans Knoechel
+license: Apache 2
+copyright: Copyright (c) 2017-Present Hans Knoechel
+
+# these should not be edited
+name: titanium-amazon-aws
+moduleid: ti.aws
+guid: 73bc1782-8697-4dbb-88f9-f0231280ce02
+platform: iphone
+minsdk: 5.5.1.GA
