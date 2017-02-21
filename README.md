@@ -5,6 +5,7 @@ for productional use.
 ## Features
 The following sub-frameworks can be exposed (marked ✅ are implemented):
 - [x] AWSCore.framework
+- [x] AWSS3.framework
 - [ ] AWSAutoScaling.framework
 - [ ] AWSCloudWatch.framework
 - [ ] AWSDynamoDB.framework
@@ -17,7 +18,6 @@ The following sub-frameworks can be exposed (marked ✅ are implemented):
 - [ ] AWSMobileAnalytics.framework
 - [ ] AWSPinpoint.framework
 - [ ] AWSPolly.framework
-- [ ] AWSS3.framework
 - [ ] AWSSES.framework
 - [ ] AWSSimpleDB.framework
 - [ ] AWSSNS.framework
