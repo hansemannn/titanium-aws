@@ -69,8 +69,7 @@
                                                                
                                                                if (task.result) {
                                                                    AWSS3TransferManagerDownloadOutput *downloadOutput = task.result;
-                                                                   
-                                                                   NSDictionary *dict = @{}; // TODO: Expose whole response to dictionary
+                                                                   NSDictionary *dict = @{@"body": downloadOutput.body}; // TODO: Expose whole response
                                                                    NSArray *invocationArray = [[NSArray alloc] initWithObjects:&dict count:1];
                                                                    
                                                                    [success call:invocationArray thisObject:self];
@@ -118,9 +117,8 @@
                                                                }
                                                                
                                                                if (task.result) {
-                                                                   AWSS3TransferManagerUploadOutput *uploadOutput = task.result;
-                                                                   
-                                                                   NSDictionary *dict = @{}; // TODO: Expose whole response to dictionary
+                                                                   AWSS3TransferManagerDownloadOutput *uploadOutput = task.result;
+                                                                   NSDictionary *dict = @{@"body": uploadOutput.body}; // TODO: Expose whole response
                                                                    NSArray *invocationArray = [[NSArray alloc] initWithObjects:&dict count:1];
                                                                    
                                                                    [success call:invocationArray thisObject:self];

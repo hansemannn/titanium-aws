@@ -11,4 +11,10 @@
 
 }
 
+- (void)setDefaultConfiguration:(id)args;
+
+- (void)setLogLevel:(id)value;
+
+- (void)log:(id)args;
+
 @end
