@@ -12,7 +12,7 @@
 
 - (TiAwsMachineIoTDataManagerProxy *)createPredictionManager:(id)args
 {
-    ENSURE_SINGLE_ARG_OR_NIL(args, NSDictionary);
+    args = (NSDictionary *)args[0];
     return [[TiAwsMachineIoTDataManagerProxy alloc] _initWithPageContext:[self pageContext] andProperties:args];
 }
 

@@ -79,7 +79,7 @@
             [predictInput setMLModelId:modelId];
             
             // Call and return prediction
-            AWSTask<AWSMachineLearningPredictOutput *> *predictOutput = [predictionManager predict:predictInput];
+            AWSTask<AWSMachineLearningPredictOutput *> *predictOutput = [self->predictionManager predict:predictInput];
             
             NSDictionary *dict = @{
                 @"url": getMLModelOutput.endpointInfo.endpointUrl,

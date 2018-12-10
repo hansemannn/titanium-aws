@@ -33,8 +33,8 @@
 
 - (void)connect:(id)args
 {
-    ENSURE_SINGLE_ARG_OR_NIL(args, NSDictionary);
-    
+    args = (NSDictionary *)args[0];
+  
     id clientId = [TiUtils stringValue:[args objectForKey:@"clientId"]];
     BOOL cleanSession = [TiUtils boolValue:[args objectForKey:@"cleanSession"] def:NO];
     id certificateId = [args objectForKey:@"certificateId"];
@@ -72,8 +72,8 @@
 
 - (void)publishData:(id)args
 {
-    ENSURE_SINGLE_ARG(args, NSDictionary);
-    
+    args = (NSDictionary *)args[0];
+
     id data = [args objectForKey:@"data"];
     ENSURE_TYPE(data, TiBlob);
     
@@ -90,8 +90,8 @@
 
 - (void)publishString:(id)args
 {
-    ENSURE_SINGLE_ARG(args, NSDictionary);
-    
+    args = (NSDictionary *)args[0];
+
     id str = [args objectForKey:@"string"];
     ENSURE_TYPE(str, NSString);
     
@@ -108,8 +108,8 @@
 
 - (void)subscribeToTopic:(id)args
 {
-    ENSURE_SINGLE_ARG(args, NSDictionary);
-    
+    args = (NSDictionary *)args[0];
+
     id topic = [args objectForKey:@"topic"];
     ENSURE_TYPE(topic, NSString);
     
@@ -133,8 +133,8 @@
 
 - (void)subscribeToTopicExtended:(id)args
 {
-    ENSURE_SINGLE_ARG(args, NSDictionary);
-    
+    args = (NSDictionary *)args[0];
+
     id topic = [args objectForKey:@"topic"];
     ENSURE_TYPE(topic, NSString);
     
@@ -161,7 +161,7 @@
 
 - (void)unsubscribeTopic:(id)value
 {
-    ENSURE_SINGLE_ARG(value, NSString);
+    value = (NSString *)value[0];
     [IoTManager unsubscribeTopic:value];
 }
 

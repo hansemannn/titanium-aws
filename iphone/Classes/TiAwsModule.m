@@ -53,10 +53,9 @@
     [[AWSServiceManager defaultServiceManager] setDefaultServiceConfiguration:configuration];
 }
 
-- (void)setLogLevel:(id)value
+- (void)setLogLevel:(NSNumber *)value
 {
-    ENSURE_TYPE(value, NSNumber);
-    [[AWSLogger defaultLogger] setLogLevel:[TiUtils intValue:value def:AWSLogLevelDebug]];
+  [[AWSDDLog sharedInstance] setLogLevel:value.intValue];
 }
 
 - (void)log:(id)args
@@ -65,9 +64,14 @@
     
     id level = [args objectAtIndex:0];
     id message = [args objectAtIndex:1];
-    
-    [[AWSLogger defaultLogger] log:[TiUtils intValue:level def:AWSLogLevelDebug]
-                            format:@"%@", message];
+  
+  [[AWSDDLog sharedInstance] log:YES message:message];
 }
+
+MAKE_SYSTEM_PROP(LOG_LEVEL_OFF, AWSDDLogLevelOff);
+MAKE_SYSTEM_PROP(LOG_LEVEL_WARNING, AWSDDLogLevelWarning);
+MAKE_SYSTEM_PROP(LOG_LEVEL_INFO, AWSDDLogLevelInfo);
+MAKE_SYSTEM_PROP(LOG_LEVEL_DEBUG, AWSDDLogLevelDebug);
+MAKE_SYSTEM_PROP(LOG_LEVEL_VERBOSE, AWSDDLogLevelVerbose);
 
 @end
