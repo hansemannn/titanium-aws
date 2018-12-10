@@ -7,11 +7,7 @@
 #import "TiProxy.h"
 #import <AWSS3/AWSS3.h>
 
-@interface TiAwsS3TransferManagerProxy : TiProxy {
-    AWSS3TransferManager *transferManager;
-}
-
-- (id)_initWithPageContext:(id<TiEvaluator>)context andProperties:(NSDictionary *)properties;
+@interface TiAwsS3TransferManagerProxy : TiProxy
 
 /**
  Download a file from S3.

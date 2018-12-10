@@ -13,7 +13,7 @@
 - (TiAwsS3TransferManagerProxy *)createTransferManager:(id)args
 {
     ENSURE_SINGLE_ARG_OR_NIL(args, NSDictionary);
-    return [[TiAwsS3TransferManagerProxy alloc] _initWithPageContext:[self pageContext] andProperties:args];
+    return [[TiAwsS3TransferManagerProxy alloc] _initWithPageContext:[self pageContext]];
 }
 
 @end

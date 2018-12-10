@@ -10,27 +10,6 @@
 
 @implementation TiAwsS3TransferManagerProxy
 
-- (id)_initWithPageContext:(id<TiEvaluator>)context andProperties:(NSDictionary *)properties
-{
-    if (self = [super _initWithPageContext:context]) {
-        AWSRegionType region = [TiUtils intValue:[properties objectForKey:@"region"] def:AWSRegionUnknown];
-        NSString *poolId = [TiUtils stringValue:[properties objectForKey:@"poolId"]];
-        NSString *identifier = [TiUtils stringValue:[properties objectForKey:@"identifier"]];
-        
-        AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:region
-                                                                                                        identityPoolId:poolId];
-        
-        AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2
-                                                                             credentialsProvider:credentialsProvider];
-        
-        [AWSS3TransferManager registerS3TransferManagerWithConfiguration:configuration forKey:identifier];
-        
-        transferManager = [AWSS3TransferManager S3TransferManagerForKey:identifier];
- }
-    
-    return self;
-}
-
 - (void)download:(id)args
 {
     ENSURE_SINGLE_ARG(args, NSDictionary);
@@ -61,7 +40,7 @@
     [downloadRequest setKey:key ?: file];
     [downloadRequest setDownloadingFileURL:[NSURL fileURLWithPath:[NSTemporaryDirectory() stringByAppendingPathComponent:file]]];
     
-    [[transferManager download:downloadRequest] continueWithExecutor:[AWSExecutor mainThreadExecutor]
+    [[AWSS3TransferManager.defaultS3TransferManager download:downloadRequest] continueWithExecutor:[AWSExecutor mainThreadExecutor]
                                                            withBlock:^id(AWSTask *task) {
                                                                if (task.error) {
                                                                    [self handleAWSErrorWithTask:task andCallback:error];
@@ -83,7 +62,7 @@
 {
     ENSURE_SINGLE_ARG(args, NSDictionary);
     
-    // Name of the downloaded file
+    // Name of the file to upload
     NSString *file;
     ENSURE_ARG_FOR_KEY(file, args, @"file", NSString);
     
@@ -102,47 +81,46 @@
     // The callback to be invoked upon success
     KrollCallback *success = nil;
     ENSURE_ARG_OR_NIL_FOR_KEY(success, args, @"success", KrollCallback);
-    
-    
+  
     AWSS3TransferManagerUploadRequest *uploadRequest = [AWSS3TransferManagerUploadRequest new];
-    
+  
     [uploadRequest setBucket:bucket];
     [uploadRequest setKey:key];
     [uploadRequest setBody:[TiUtils toURL:file proxy:self]];
-    
-    [[transferManager upload:uploadRequest] continueWithExecutor:[AWSExecutor mainThreadExecutor]
-                                                           withBlock:^id(AWSTask *task) {
-                                                               if (task.error) {
-                                                                   [self handleAWSErrorWithTask:task andCallback:error];
-                                                               }
+  
+    [[AWSS3TransferManager.defaultS3TransferManager upload:uploadRequest] continueWithExecutor:[AWSExecutor mainThreadExecutor]
+                                                             withBlock:^id(AWSTask *task) {
+                                                                 if (task.error) {
+                                                                     [self handleAWSErrorWithTask:task andCallback:error];
+                                                                 }
                                                                
-                                                               if (task.result) {
-                                                                   AWSS3TransferManagerDownloadOutput *uploadOutput = task.result;
-                                                                   NSDictionary *dict = @{@"body": uploadOutput.body}; // TODO: Expose whole response
-                                                                   NSArray *invocationArray = [[NSArray alloc] initWithObjects:&dict count:1];
+                                                                 if (task.result) {
+                                                                     AWSS3TransferManagerDownloadOutput *uploadOutput = task.result;
+                                                                     NSDictionary *dict = @{@"body": uploadRequest.body}; // TODO: Expose whole response
+                                                                     NSArray *invocationArray = [[NSArray alloc] initWithObjects:&dict count:1];
                                                                    
-                                                                   [success call:invocationArray thisObject:self];
-                                                               }
+                                                                     [success call:invocationArray thisObject:self];
+                                                                 }
                                                                
-                                                               return nil;
-                                                           }];
+                                                                 return nil;
+                                                             }];
 }
 
 - (void)cancelAll:(id)unused
 {
-    [transferManager cancelAll];
+    [AWSS3TransferManager.defaultS3TransferManager cancelAll];
 }
 
 - (void)pauseAll:(id)unused
 {
-    [transferManager pauseAll];
+    [AWSS3TransferManager.defaultS3TransferManager pauseAll];
 }
 
 - (void)resumeAll:(id)value
 {
     ENSURE_SINGLE_ARG_OR_NIL(value, KrollCallback);
     
-    [transferManager resumeAll:^(AWSRequest *request) {
+    [AWSS3TransferManager.defaultS3TransferManager resumeAll:^(AWSRequest *request) {
         if (value != nil) {
             NSDictionary *dict = @{};
             NSArray *invocationArray = [[NSArray alloc] initWithObjects:&dict count:1];
@@ -154,7 +132,7 @@
 
 - (void)clearCache:(id)unused
 {
-    [transferManager clearCache];
+    [AWSS3TransferManager.defaultS3TransferManager clearCache];
 }
 
 #pragma mark Utilities

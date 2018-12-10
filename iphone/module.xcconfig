@@ -1,3 +1,0 @@
-
-// More to be added later
-OTHER_LDFLAGS = $(inherited) -framework AWSCore -framework AWSDynamoDB -framework AWSIoT -framework AWSMachineLearning -framework AWSS3
