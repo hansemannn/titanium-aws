@@ -21,3 +21,5 @@ iphone/xcuserdata/
 ios/metadata.json
 ios/ti.aws.xcodeproj/project.xcworkspace/xcuserdata/
 ios/ti.aws-iphone-*.zip
+android/build
+android/dist/ti.aws-android-*.zip

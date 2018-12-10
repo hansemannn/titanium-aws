@@ -1,0 +1,26 @@
+apply plugin: 'java'
+
+repositories {
+	google()
+	jcenter()
+	mavenCentral()
+}
+
+dependencies {
+    implementation 'com.amazonaws:aws-android-sdk-core:2.8.5'
+    implementation 'com.amazonaws:aws-android-sdk-s3:2.8.5'
+    implementation 'com.amazonaws:aws-android-sdk-machinelearning:2.8.5'
+    implementation 'com.amazonaws:aws-android-sdk-iot:2.8.5'
+
+    implementation('com.amazonaws:aws-android-sdk-mobile-client:2.6.+@aar') { transitive = true }
+    implementation('com.amazonaws:aws-android-sdk-auth-userpools:2.6.+@aar') { transitive = true }
+}
+
+configurations.all {
+  transitive = false
+}
+
+task getDeps(type: Copy) {
+	from sourceSets.main.runtimeClasspath
+	into 'lib/'
+}
