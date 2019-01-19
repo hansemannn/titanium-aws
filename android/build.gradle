@@ -14,6 +14,7 @@ dependencies {
 
     implementation('com.amazonaws:aws-android-sdk-mobile-client:2.6.+@aar') { transitive = true }
     implementation('com.amazonaws:aws-android-sdk-auth-userpools:2.6.+@aar') { transitive = true }
+    implementation('com.amazonaws:aws-android-sdk-auth-core:2.6.+@aar') { transitive = true }
 }
 
 configurations.all {

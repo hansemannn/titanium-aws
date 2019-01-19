@@ -135,6 +135,23 @@
     [AWSS3TransferManager.defaultS3TransferManager clearCache];
 }
 
+- (void)configure:(id)args
+{
+  ENSURE_SINGLE_ARG(args, NSDictionary);
+  
+  AWSRegionType region = [TiUtils intValue:[args objectForKey:@"region"] def:AWSRegionUnknown];
+  NSString *poolId = [TiUtils stringValue:[args objectForKey:@"poolId"]];
+  
+  AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc]
+                                                        initWithRegionType:region
+                                                        identityPoolId:poolId];
+  
+  AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:region
+                                                                       credentialsProvider:credentialsProvider];
+  
+  [[AWSServiceManager defaultServiceManager] setDefaultServiceConfiguration:configuration];
+}
+
 #pragma mark Utilities
 
 - (void)handleAWSErrorWithTask:(AWSTask *)task andCallback:(KrollCallback *)callback

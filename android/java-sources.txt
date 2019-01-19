@@ -15,6 +15,7 @@
 "/Users/hans/Documents/dev/titanium/titanium-amazon-aws/android/build/generated/r/android/support/v7/appcompat/R.java"
 "/Users/hans/Documents/dev/titanium/titanium-amazon-aws/android/build/generated/r/android/support/v7/cardview/R.java"
 "/Users/hans/Documents/dev/titanium/titanium-amazon-aws/android/build/generated/r/android/support/v7/recyclerview/R.java"
+"/Users/hans/Documents/dev/titanium/titanium-amazon-aws/android/build/generated/r/com/amazonaws/mobile/auth/core/R.java"
 "/Users/hans/Documents/dev/titanium/titanium-amazon-aws/android/build/generated/r/com/amazonaws/mobile/auth/userpools/R.java"
 "/Users/hans/Documents/dev/titanium/titanium-amazon-aws/android/build/generated/r/com/amazonaws/mobile/client/R.java"
 "/Users/hans/Documents/dev/titanium/titanium-amazon-aws/android/build/generated/r/ti/aws/R.java"
