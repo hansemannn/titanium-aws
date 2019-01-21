@@ -19,6 +19,7 @@ import org.appcelerator.titanium.TiApplication;
 
 import android.content.Context;
 import android.app.Activity;
+import android.net.Uri;
 
 import java.io.File;
 
@@ -73,7 +74,8 @@ public class S3TransferManagerProxy extends KrollProxy
 						.s3Client(new AmazonS3Client(AWSMobileClient.getInstance().getCredentialsProvider()))
 						.build();
 
-		File nativeFile = new File(file);
+		
+		File nativeFile = new File(Uri.parse(file).getPath());
 		
 		TransferObserver uploadObserver = transferUtility.upload(key, nativeFile);
 		
