@@ -1,30 +1,34 @@
 var AWS = require('ti.aws');
 
 var win = Ti.UI.createWindow({ backgroundColor: '#fff' });
-var button = Ti.UI.createButton({ title: 'Upload' });
-
-
 var transferManager = AWS.createS3TransferManager();
-transferManager.configure({
-    region: AWS.REGION_US_WEST_1,
-    poolId: 'YOUR_POOL_ID'
+
+// We cannot access files from the resources directory, so we copy it over before
+var file = Ti.Filesystem.getFile(Ti.Filesystem.resourcesDirectory, 'example.png');
+var newFile = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory, 'example.png');
+newFile.write(file.read());
+
+win.addEventListener('open', function () {
+    transferManager.configure({
+        region: AWS.REGION_US_WEST_1, // See the AWS docs for details
+        poolId: 'YOUR_POOL_ID'
+    });
 });
 
-button.addEventListener('click', function () {
-    var file = Ti.Filesystem.getFile(Ti.Filesystem.resourcesDirectory, 'example.png');
-    console.log(file.nativePath)
-    
-    if (!file.exists()) {
+var button = Ti.UI.createButton({ title: 'Upload' });
+
+button.addEventListener('click', function () {    
+    if (!newFile.exists()) {
         throw new Error('NO SUCH FILE');
     }
-    
+
     transferManager.upload({
-        file: file.nativePath,
+        file: newFile.nativePath,
         bucket: 'lambus',
         key: 'profiles/example-' + new Date().getTime() + '.png',
         success: function (event) {
             Ti.API.warn('SUCCESS!');
-            Ti.API.warn(event);
+            Ti.API.warn(JSON.stringify(event));
         },
         error: function (event) {
             Ti.API.error('ERROR!');
